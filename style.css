@@ -1,0 +1,20 @@
+.forcast {
+    margin-top: 3rem;
+}
+
+#five-forcast {
+    display: flex;
+}
+
+.col {
+    background-color: midnightblue;
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.colOne {
+    border: 2px solid;
+}
+
+  
