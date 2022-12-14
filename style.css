@@ -50,6 +50,7 @@ body {
     border-radius: 10px;
     margin: 10px 0;
     position: relative;
+    color: black;
 }
 
 .row {
@@ -91,4 +92,14 @@ body {
         section button:hover{
           background-color:rgb(6, 164, 243);
     }
+
+
+    #submit {
+        background-color: blue;
+        color: white;
+    }
+
+    /* .currentTemp {
+        color: black;
+    } */
   
