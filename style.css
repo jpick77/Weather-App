@@ -1,20 +1,94 @@
 .forcast {
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-right: 7rem;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+/* div.list-group {
+    margin-right: 3rem;
+
+} */
+body {
+    margin: 0;
 }
 
 #five-forcast {
     display: flex;
 }
 
+.current-forcast {
+    display: flex;
+    flex-direction: column;
+    /* flex: 0; */
+}
+
 .col {
-    background-color: midnightblue;
+    background-color: rgb(25, 25, 112);
     color: white;
+    padding-right: 3rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    flex: 0;
+    
+    
 }
 
 .colOne {
-    border: 2px solid;
+    /* border: 2px solid;
+    margin: 1rem;
+    margin-right: 7rem;
+    padding-right: 30rem;
+    float: right; */
+    text-transform: capitalize;
+    border: 1px solid black; 
+    text-align: start;
+    align-content: space-between;
+    width: auto;
+    padding:20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    position: relative;
 }
 
+.row {
+    float: right;
+    
+}
+
+.jumbo-addition {
+    /* position: relative; */
+    z-index: 100;
+    background-color: rgba(26, 45, 189, 0.967);
+    /* opacity: 0.5; */
+  }
+  
+  header{
+    padding: 2px;
+    text-align: center;
+      color:white;
+      border: 1px solid white;
+  
+      
+  }
+   
+    .list-group {
+        background-color: rgb(205, 232, 245,.1);
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    section button{
+        width: 251px;
+        height: 40px;
+        background-color: rgba(20, 153, 219, 0.963);
+        
+       
+    }
+        
+        /*When you hover over the saved cities area*/
+        section button:hover{
+          background-color:rgb(6, 164, 243);
+    }
   
