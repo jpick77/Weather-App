@@ -80,6 +80,10 @@ body {
         border-radius: 10px;
     }
 
+    .btn-item:nth-child(odd) {
+        background: pink;
+    }
+
     section button{
         width: 251px;
         height: 40px;

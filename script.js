@@ -7,14 +7,38 @@
 
 // let currentDate = `${month}-${day}-${year}`;
 // console.log(currentDate);
-
+let listGroup = document.getElementById("list-group");
+let cityList = [];
+console.log("dataOne: ", cityList);
 
 let submitButton = document.getElementById("submit");
 
-function getWeather(query) {
+function renderHistory() {
+    listGroup.innerHTML = "";
+    for (let i = cityList.length-1; i >= 0; i--) {
+    let buttonEl = document.createElement("button");
+    buttonEl.setAttribute("class", "btn-item");
+    buttonEl.textContent = cityList[i];
+    listGroup.append(buttonEl);
+    }
+}
+
+
+
+function getHistory() {
+    let storedData = localStorage.getItem("city");
+    if (storedData) {
+        cityList = JSON.parse(storedData);
+    }
+    renderHistory();
+}
+
+function getWeather() {
     let name = document.getElementById("cityenter").value;
     var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=imperial&appid=97ffa5948fec702405313e29d2ecf5d9`
-
+    cityList.push(name);
+    // console.log("dataTwo: ", cityList);
+    localStorage.setItem("city", JSON.stringify(cityList));
     fetch(weatherUrl)
     .then((response) => response.json())
     .then((data) => displayCurrentWeather(data));
@@ -78,10 +102,11 @@ function getFiveForcast() {
     fetch(weatherUrl)
     .then((response) => response.json())
     .then(result => {
+
         console.log(result);
     })
 };
-
+getHistory();
 submitButton.addEventListener("click", getFiveForcast);
 
     
