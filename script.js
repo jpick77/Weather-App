@@ -102,7 +102,24 @@ function getFiveForcast() {
     fetch(weatherUrl)
     .then((response) => response.json())
     .then(result => {
+        let list = result.list;
+        let forcastHum = document.getElementsByClassName("humidity");
+        let forcastTemp = document.getElementsByClassName("temp");
+        let forcastWind = document.getElementsByClassName("wind");
 
+        for (let i = 0; i < 5; i++) {
+            forcastTemp[i].innerHTML = `Temp: ${list[i].main.temp} °F  `;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            forcastWind[i].innerHTML = `Wind:  ${list[i].wind.speed} MPH`;
+        }
+       
+        for (let i = 0; i < 5; i++) {
+            forcastHum[i].innerHTML = `Humidity:  ${list[i].main.humidity}  %`;
+        }
+
+        console.log(forcastTemp);
         console.log(result);
     })
 };

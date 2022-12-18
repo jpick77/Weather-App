@@ -81,7 +81,7 @@ body {
     }
 
     .btn-item:nth-child(odd) {
-        background: pink;
+        background: lightblue;
     }
 
     section button{
