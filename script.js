@@ -87,7 +87,8 @@ function getFiveForcast() {
 
     fetch(weatherUrl)
     .then((response) => response.json())
-    .then(result => {
+    .then(result => { 
+
         let list = result.list;
         let forcastHum = document.getElementsByClassName("humidity");
         let forcastTemp = document.getElementsByClassName("temp");
@@ -103,6 +104,18 @@ function getFiveForcast() {
        
         for (let i = 0; i < forcastHum.length; i++) {
             forcastHum[i].innerHTML = `Humidity: ${list[i].main.humidity} %`;
+        }
+
+        for (let i =0; i < 5; i++) {
+            let unixTimeStamp = result.list[i].dt;
+            console.log(unixTimeStamp);
+    
+            let milliseconds = unixTimeStamp;
+            
+            let dateObject = new Date(milliseconds);
+            let humanDateFormat = dateObject.toLocaleString();
+            let forcastFormat = document.getElementsByClassName("date");
+            forcastFormat[i].innerHTML = `${humanDateFormat}`;
         }
 
         console.log(forcastTemp);

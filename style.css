@@ -103,6 +103,10 @@ body {
         color: white;
     }
 
+    .date {
+        font-size: 25px;
+    }
+
     /* .currentTemp {
         color: black;
     } */
