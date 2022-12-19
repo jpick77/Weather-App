@@ -1,12 +1,4 @@
 
-// console.log(currentDay);
-
-// let day = currentDay.getDate();
-// let month = currentDay.getMonth();
-// let year = currentDay.getFullYear();
-
-// let currentDate = `${month}-${day}-${year}`;
-// console.log(currentDate);
 let listGroup = document.getElementById("list-group");
 let cityList = [];
 console.log("dataOne: ", cityList);
@@ -37,7 +29,6 @@ function getWeather() {
     let name = document.getElementById("cityenter").value;
     var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=imperial&appid=97ffa5948fec702405313e29d2ecf5d9`
     cityList.push(name);
-    // console.log("dataTwo: ", cityList);
     localStorage.setItem("city", JSON.stringify(cityList));
     fetch(weatherUrl)
     .then((response) => response.json())
@@ -53,10 +44,6 @@ function displayCurrentWeather(weather) {
     city.textContent = weather.name;
     console.log(city);
 
-    // let dateEl = document.getElementById("currentDay");
-    // dateEl.textContent = weather.dt;
-    
-    // console.log(dateEl);
 
     const unixTimestamp = weather.dt;
 
@@ -64,16 +51,15 @@ function displayCurrentWeather(weather) {
     
     const dateObject = new Date(milliseconds);
     
-    const humanDateFormat = dateObject.toLocaleString(); //2019-12-9 10:30:15
+    let humanDateFormat = dateObject.toLocaleString(); //2019-12-9 10:30:15
+    let dateFormat = document.getElementById("currentDay");
+    dateFormat.innerHTML = `<p id="currentDay">${humanDateFormat}</p>`;
+
     console.log(humanDateFormat);
     dateObject.toLocaleString("en-US", {weekday: "long"}); // Monday
     dateObject.toLocaleString("en-US", {month: "long"}); // December
     dateObject.toLocaleString("en-US", {day: "numeric"}); // 9
     dateObject.toLocaleString("en-US", {year: "numeric"}); // 2019
-    // dateObject.toLocaleString("en-US", {hour: "numeric"}); // 10 AM
-    // dateObject.toLocaleString("en-US", {minute: "numeric"}); // 30
-    // dateObject.toLocaleString("en-US", {second: "numeric"}); // 15
-    // dateObject.toLocaleString("en-US", {timeZoneName: "short"}); // 12/9/2019, 10:30:15 AM CST
 
     let temp = document.getElementById("currentTemp");
     temp.textContent = "Temp: " + weather.main.temp + " °F";
@@ -115,8 +101,8 @@ function getFiveForcast() {
             forcastWind[i].innerHTML = `Wind:  ${list[i].wind.speed} MPH`;
         }
        
-        for (let i = 0; i < 5; i++) {
-            forcastHum[i].innerHTML = `Humidity:  ${list[i].main.humidity}  %`;
+        for (let i = 0; i < forcastHum.length; i++) {
+            forcastHum[i].innerHTML = `Humidity: ${list[i].main.humidity} %`;
         }
 
         console.log(forcastTemp);
