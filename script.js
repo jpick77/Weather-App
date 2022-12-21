@@ -93,7 +93,13 @@ function getFiveForcast() {
         let forcastHum = document.getElementsByClassName("humidity");
         let forcastTemp = document.getElementsByClassName("temp");
         let forcastWind = document.getElementsByClassName("wind");
+        let forcastIcon = document.getElementById("icon");
+        let forcastIconTwo = document.getElementById("iconTwo");
+        let forcastIconThree = document.getElementById("iconThree");
+        let forcastIconFour = document.getElementById("iconFour");
+        let forcastIconFive = document.getElementById("iconFive");
 
+        
         for (let i = 0; i < 5; i++) {
             forcastTemp[i].innerHTML = `Temp: ${list[i].main.temp} °F  `;
         }
@@ -106,23 +112,57 @@ function getFiveForcast() {
             forcastHum[i].innerHTML = `Humidity: ${list[i].main.humidity} %`;
         }
 
-        for (let i =0; i < 5; i++) {
-            let unixTimeStamp = result.list[i].dt;
-            console.log(unixTimeStamp);
-    
-            let milliseconds = unixTimeStamp;
-            
-            let dateObject = new Date(milliseconds);
-            let humanDateFormat = dateObject.toLocaleString();
-            let forcastFormat = document.getElementsByClassName("date");
-            forcastFormat[i].innerHTML = `${humanDateFormat}`;
+        for (let i = 0; i < 5; i++) {
+            //    iconId = list[i].weather[0].icon;
+           
+            forcastIcon.innerHTML = `<img src="http://openweathermap.org/img/w/${list[0].weather[0].icon}.png"/>`;
         }
 
-        console.log(forcastTemp);
+        for (let i = 0; i < 5; i++) {
+            //    iconId = list[i].weather[0].icon;
+           
+            forcastIconTwo.innerHTML = `<img src="http://openweathermap.org/img/w/${list[1].weather[0].icon}.png"/>`;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            //    iconId = list[i].weather[0].icon;
+           
+            forcastIconThree.innerHTML = `<img src="http://openweathermap.org/img/w/${list[2].weather[0].icon}.png"/>`;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            //    iconId = list[i].weather[0].icon;
+           
+            forcastIconFour.innerHTML = `<img src="http://openweathermap.org/img/w/${list[3].weather[0].icon}.png"/>`;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            //    iconId = list[i].weather[0].icon;
+           
+            forcastIconFive.innerHTML = `<img src="http://openweathermap.org/img/w/${list[4].weather[0].icon}.png"/>`;
+        }
+
+        console.log(forcastIcon);
+    
         console.log(result);
     })
 };
 getHistory();
 submitButton.addEventListener("click", getFiveForcast);
 
-    
+let d = new Date();    
+let weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+function getDates(day) {
+    if(day +d.getDay() > 6) {
+        return day +d.getDay()-7;
+    }
+    else {
+        return day +d.getDay();
+    }
+}
+
+for (let i = 1; i < 6; i++) {
+    let week = document.getElementById("date"+(i+1)).innerHTML = weekday[getDates(i)];
+    console.log(week);
+}
