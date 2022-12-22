@@ -5,3 +5,9 @@ For this challenge, I wanted to create a website where a user could input a city
 I used Bootstrap, Flexbox, jQuery, and JavaScript to design and display a functioning Weather-Application.
 
 # Link to Deployed Page
+https://jpick77.github.io/Weather-App/
+
+# Screenshot of Code and Website
+![Alt text](./images/weather.pic.1.png "weather.pic.1.png")
+![Alt text](./images/weather.pic.2.png "weather.pic.2.png")
+![Alt text](./images/weather.pic.3.png "weather.pic.3.png")
